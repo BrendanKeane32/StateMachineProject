@@ -1,0 +1,49 @@
+grammar org.xtext.icam.StateMachine with org.eclipse.xtext.common.Terminals
+
+generate stateMachine "http://www.xtext.org/icam/StateMachine"
+
+model:
+	statemachine+=StateMachine*
+;
+StateMachine:
+	'machine' name=ID '{'
+	
+	events+=Event*
+	
+	commands+=Command+
+	
+	states+=State*
+	'initial' initialevents+=[State]
+	'final' finalevents+=[State]
+	'}'
+;
+
+Event:
+	'event' name=ID
+;
+	
+Command:
+	'command' name=ID
+;
+
+Modifier:
+	visibility+=Visibility
+;
+
+enum Visibility:
+	Final='final' | Initial='initial'
+;
+
+State:
+	modifier+=Modifier?
+	'state' name=ID
+		('actions' '{' actions+=[Command]+ '}')?
+		transitions+=Transition*
+	'end'
+;
+
+Transition:
+	'on' event=[Event] 'then' state=[State] 'if' '(' ')'
+;
+
+

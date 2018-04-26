@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.xtext.icam.statemachine
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.xtext.icam.statemachine; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.util,
+ org.eclipse.xtend.lib,
+ org.eclipse.emf.common
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.xtext.icam.parser.antlr.internal,
+ org.xtext.icam.validation,
+ org.xtext.icam.parser.antlr,
+ org.xtext.icam.stateMachine.impl,
+ org.xtext.icam.serializer,
+ org.xtext.icam.stateMachine,
+ org.xtext.icam.stateMachine.util,
+ org.xtext.icam,
+ org.xtext.icam.scoping,
+ org.xtext.icam.services,
+ org.xtext.icam.generator
+Import-Package: org.apache.log4j
