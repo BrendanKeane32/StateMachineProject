@@ -20,14 +20,19 @@ class StateMachineGenerator extends AbstractGenerator {
 	 
 	
 	
+<<<<<<< HEAD
 	State firstState	
 	State lastState	
+=======
+	State firstState
+	State lastState
+>>>>>>> refs/remotes/origin/master
 	String middleOne
 	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		resource.allContents.filter(typeof(StateMachine)).forEach[it.generateMachine(fsa,resource)]
-		
-	//	firstStateName = firstState.name
+		resource.allContents.filter(typeof(StateMachine)).forEach[it.generateMachine(fsa,resource)]  //gen machine
+		resource.allContents.filter(typeof(StateMachine)).forEach[it.generateInterface(fsa,resource)]  //gen interface
+		resource.allContents.filter(typeof(StateMachine)).forEach[it.generateEnum(fsa,resource)]  //gen enum
 		}
 	
 	def void generateMachine(StateMachine machine, IFileSystemAccess2 fsa,Resource resource) {
@@ -35,6 +40,14 @@ class StateMachineGenerator extends AbstractGenerator {
 		lastState = resource.allContents.filter(typeof(State)).last
 		resource.allContents.filter(typeof(State)).forEach[it.verifyMe(firstState,lastState)]
 		fsa.generateFile(machine.name+".java", machine.toJavaCode)
+	}
+	
+	def void generateInterface(StateMachine machine, IFileSystemAccess2 fsa,Resource resource) {
+		fsa.generateFile(machine.name+"Interface.java", machine.toInterfaceCode)
+	}
+	
+	def void generateEnum(StateMachine machine, IFileSystemAccess2 fsa,Resource resource) {
+		fsa.generateFile(machine.name+"State.java", machine.toEnumCode)
 	}
 	
 	def void verifyMe(State state, State firststate, State laststate){
@@ -46,15 +59,10 @@ class StateMachineGenerator extends AbstractGenerator {
 	def CharSequence toJavaCode(StateMachine machine)'''
 	//Generated code, do not edit
 				
-				
-				
-				abstract class «machine.name» implements StateMachineInterface{
+	abstract class «machine.name» implements «machine.name»Interface{
 					
-					enum myStates {
-					«FOR c : machine.states»
-						«c.name»,
-					«ENDFOR»}
 					
+<<<<<<< HEAD
 					final void init(){
 						turnRed();
 						state == RedRed;
@@ -68,10 +76,65 @@ class StateMachineGenerator extends AbstractGenerator {
 								}
 							}
 						}
+=======
+		String state = "«machine.initialstates.name»";
+					
+			public void loop(){
+			if(state == "«machine.initialstates.name»"){
+				if(event == null){
+					else if(timerUp()==true && c){
+						state = "«middleOne»";}
+>>>>>>> refs/remotes/origin/master
 					}
 					
 					
 				}
-			'''	
+				if(state == "«middleOne»"){
+					if(event == null){
+						else if(timerUp() && c){
+							state = "«machine.finalstates.name»";}
+					}
+				}
+						
+			if(state == "«machine.finalstates.name»"){
+				if(event == null){
+					else if(timerUp() && c){
+						reset();}
+					}
+				}
+			}
+						
+			public void reset(){
+				state = "«machine.initialstates.name»";
+				}
+			}
+		'''	
+			
+			def CharSequence toInterfaceCode(StateMachine machine)'''
+			
+			public interface «machine.name»Interface {
+				
+				void setup();
+				
+				void turnGreen();
+				
+				void turnRed();
+				
+				void turnAmber();
+				
+				boolean timerUp();
+			}
+			'''
+			
+			def CharSequence toEnumCode(StateMachine machine)'''
+			
+			public enum «machine.name»State {
+				int i = «machine.states.toArray.length-1»;
+				
+				
+			«FOR c:machine.states»
+					«c.name»,
+			«ENDFOR»;}
+			'''
 }
 

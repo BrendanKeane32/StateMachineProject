@@ -133,22 +133,22 @@ public interface StateMachinePackage extends EPackage
   int STATE_MACHINE__STATES = 3;
 
   /**
-   * The feature id for the '<em><b>Initialevents</b></em>' reference list.
+   * The feature id for the '<em><b>Initialstates</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATE_MACHINE__INITIALEVENTS = 4;
+  int STATE_MACHINE__INITIALSTATES = 4;
 
   /**
-   * The feature id for the '<em><b>Finalevents</b></em>' reference list.
+   * The feature id for the '<em><b>Finalstates</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATE_MACHINE__FINALEVENTS = 5;
+  int STATE_MACHINE__FINALSTATES = 5;
 
   /**
    * The number of structural features of the '<em>State Machine</em>' class.
@@ -422,26 +422,26 @@ public interface StateMachinePackage extends EPackage
   EReference getStateMachine_States();
 
   /**
-   * Returns the meta object for the reference list '{@link org.xtext.icam.stateMachine.StateMachine#getInitialevents <em>Initialevents</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.icam.stateMachine.StateMachine#getInitialstates <em>Initialstates</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Initialevents</em>'.
-   * @see org.xtext.icam.stateMachine.StateMachine#getInitialevents()
+   * @return the meta object for the reference '<em>Initialstates</em>'.
+   * @see org.xtext.icam.stateMachine.StateMachine#getInitialstates()
    * @see #getStateMachine()
    * @generated
    */
-  EReference getStateMachine_Initialevents();
+  EReference getStateMachine_Initialstates();
 
   /**
-   * Returns the meta object for the reference list '{@link org.xtext.icam.stateMachine.StateMachine#getFinalevents <em>Finalevents</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.icam.stateMachine.StateMachine#getFinalstates <em>Finalstates</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Finalevents</em>'.
-   * @see org.xtext.icam.stateMachine.StateMachine#getFinalevents()
+   * @return the meta object for the reference '<em>Finalstates</em>'.
+   * @see org.xtext.icam.stateMachine.StateMachine#getFinalstates()
    * @see #getStateMachine()
    * @generated
    */
-  EReference getStateMachine_Finalevents();
+  EReference getStateMachine_Finalstates();
 
   /**
    * Returns the meta object for class '{@link org.xtext.icam.stateMachine.Event <em>Event</em>}'.
@@ -686,20 +686,20 @@ public interface StateMachinePackage extends EPackage
     EReference STATE_MACHINE__STATES = eINSTANCE.getStateMachine_States();
 
     /**
-     * The meta object literal for the '<em><b>Initialevents</b></em>' reference list feature.
+     * The meta object literal for the '<em><b>Initialstates</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference STATE_MACHINE__INITIALEVENTS = eINSTANCE.getStateMachine_Initialevents();
+    EReference STATE_MACHINE__INITIALSTATES = eINSTANCE.getStateMachine_Initialstates();
 
     /**
-     * The meta object literal for the '<em><b>Finalevents</b></em>' reference list feature.
+     * The meta object literal for the '<em><b>Finalstates</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference STATE_MACHINE__FINALEVENTS = eINSTANCE.getStateMachine_Finalevents();
+    EReference STATE_MACHINE__FINALSTATES = eINSTANCE.getStateMachine_Finalstates();
 
     /**
      * The meta object literal for the '{@link org.xtext.icam.stateMachine.impl.EventImpl <em>Event</em>}' class.

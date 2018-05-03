@@ -13,8 +13,8 @@ StateMachine:
 	commands+=Command+
 	
 	states+=State*
-	'initial' initialevents+=[State]
-	'final' finalevents+=[State]
+	'initial' initialstates=[State]
+	'final' finalstates=[State]
 	'}'
 ;
 
