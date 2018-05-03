@@ -7,7 +7,6 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import org.xtext.icam.stateMachine.Command
 import org.xtext.icam.stateMachine.State
 import org.xtext.icam.stateMachine.StateMachine
 
@@ -21,11 +20,9 @@ class StateMachineGenerator extends AbstractGenerator {
 	 
 	
 	
-	State firstState
-	
-	State lastState
-	
-	String midleOne
+	State firstState	
+	State lastState	
+	String middleOne
 	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		resource.allContents.filter(typeof(StateMachine)).forEach[it.generateMachine(fsa,resource)]
@@ -42,7 +39,7 @@ class StateMachineGenerator extends AbstractGenerator {
 	
 	def void verifyMe(State state, State firststate, State laststate){
 		if((!state.name.equals(firststate.name)) && (!state.name.equals(laststate.name))){
-			midleOne=state.name
+			middleOne=state.name
 		}
 	}
 	
@@ -58,18 +55,22 @@ class StateMachineGenerator extends AbstractGenerator {
 						«c.name»,
 					«ENDFOR»}
 					
+					final void init(){
+						turnRed();
+						state == RedRed;
+					}
+					
 					public void loop(){
 						if(state == «firstState.name»){
 							if(event == null){
-								else if(timerUp && c){
-									state = «midleOne»
+								else if(timerUp() && c){
+									state = «middleOne»;
 								}
 							}
 						}
-						
-					public void reset(){
-						
 					}
+					
+					
 				}
 			'''	
 }
