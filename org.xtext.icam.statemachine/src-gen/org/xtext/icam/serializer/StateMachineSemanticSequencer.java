@@ -122,8 +122,8 @@ public class StateMachineSemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *         events+=Event* 
 	 *         commands+=Command+ 
 	 *         states+=State* 
-	 *         initialevents+=[State|ID] 
-	 *         finalevents+=[State|ID]
+	 *         initialstates=[State|ID] 
+	 *         finalstates=[State|ID]
 	 *     )
 	 */
 	protected void sequence_StateMachine(ISerializationContext context, StateMachine semanticObject) {

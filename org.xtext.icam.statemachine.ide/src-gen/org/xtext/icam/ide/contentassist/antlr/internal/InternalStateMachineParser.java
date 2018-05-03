@@ -1462,31 +1462,31 @@ public class InternalStateMachineParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__StateMachine__Group__7__Impl"
-    // InternalStateMachine.g:472:1: rule__StateMachine__Group__7__Impl : ( ( rule__StateMachine__InitialeventsAssignment_7 ) ) ;
+    // InternalStateMachine.g:472:1: rule__StateMachine__Group__7__Impl : ( ( rule__StateMachine__InitialstatesAssignment_7 ) ) ;
     public final void rule__StateMachine__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalStateMachine.g:476:1: ( ( ( rule__StateMachine__InitialeventsAssignment_7 ) ) )
-            // InternalStateMachine.g:477:1: ( ( rule__StateMachine__InitialeventsAssignment_7 ) )
+            // InternalStateMachine.g:476:1: ( ( ( rule__StateMachine__InitialstatesAssignment_7 ) ) )
+            // InternalStateMachine.g:477:1: ( ( rule__StateMachine__InitialstatesAssignment_7 ) )
             {
-            // InternalStateMachine.g:477:1: ( ( rule__StateMachine__InitialeventsAssignment_7 ) )
-            // InternalStateMachine.g:478:2: ( rule__StateMachine__InitialeventsAssignment_7 )
+            // InternalStateMachine.g:477:1: ( ( rule__StateMachine__InitialstatesAssignment_7 ) )
+            // InternalStateMachine.g:478:2: ( rule__StateMachine__InitialstatesAssignment_7 )
             {
-             before(grammarAccess.getStateMachineAccess().getInitialeventsAssignment_7()); 
-            // InternalStateMachine.g:479:2: ( rule__StateMachine__InitialeventsAssignment_7 )
-            // InternalStateMachine.g:479:3: rule__StateMachine__InitialeventsAssignment_7
+             before(grammarAccess.getStateMachineAccess().getInitialstatesAssignment_7()); 
+            // InternalStateMachine.g:479:2: ( rule__StateMachine__InitialstatesAssignment_7 )
+            // InternalStateMachine.g:479:3: rule__StateMachine__InitialstatesAssignment_7
             {
             pushFollow(FOLLOW_2);
-            rule__StateMachine__InitialeventsAssignment_7();
+            rule__StateMachine__InitialstatesAssignment_7();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getStateMachineAccess().getInitialeventsAssignment_7()); 
+             after(grammarAccess.getStateMachineAccess().getInitialstatesAssignment_7()); 
 
             }
 
@@ -1622,31 +1622,31 @@ public class InternalStateMachineParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__StateMachine__Group__9__Impl"
-    // InternalStateMachine.g:526:1: rule__StateMachine__Group__9__Impl : ( ( rule__StateMachine__FinaleventsAssignment_9 ) ) ;
+    // InternalStateMachine.g:526:1: rule__StateMachine__Group__9__Impl : ( ( rule__StateMachine__FinalstatesAssignment_9 ) ) ;
     public final void rule__StateMachine__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalStateMachine.g:530:1: ( ( ( rule__StateMachine__FinaleventsAssignment_9 ) ) )
-            // InternalStateMachine.g:531:1: ( ( rule__StateMachine__FinaleventsAssignment_9 ) )
+            // InternalStateMachine.g:530:1: ( ( ( rule__StateMachine__FinalstatesAssignment_9 ) ) )
+            // InternalStateMachine.g:531:1: ( ( rule__StateMachine__FinalstatesAssignment_9 ) )
             {
-            // InternalStateMachine.g:531:1: ( ( rule__StateMachine__FinaleventsAssignment_9 ) )
-            // InternalStateMachine.g:532:2: ( rule__StateMachine__FinaleventsAssignment_9 )
+            // InternalStateMachine.g:531:1: ( ( rule__StateMachine__FinalstatesAssignment_9 ) )
+            // InternalStateMachine.g:532:2: ( rule__StateMachine__FinalstatesAssignment_9 )
             {
-             before(grammarAccess.getStateMachineAccess().getFinaleventsAssignment_9()); 
-            // InternalStateMachine.g:533:2: ( rule__StateMachine__FinaleventsAssignment_9 )
-            // InternalStateMachine.g:533:3: rule__StateMachine__FinaleventsAssignment_9
+             before(grammarAccess.getStateMachineAccess().getFinalstatesAssignment_9()); 
+            // InternalStateMachine.g:533:2: ( rule__StateMachine__FinalstatesAssignment_9 )
+            // InternalStateMachine.g:533:3: rule__StateMachine__FinalstatesAssignment_9
             {
             pushFollow(FOLLOW_2);
-            rule__StateMachine__FinaleventsAssignment_9();
+            rule__StateMachine__FinalstatesAssignment_9();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getStateMachineAccess().getFinaleventsAssignment_9()); 
+             after(grammarAccess.getStateMachineAccess().getFinalstatesAssignment_9()); 
 
             }
 
@@ -3662,9 +3662,9 @@ public class InternalStateMachineParser extends AbstractInternalContentAssistPar
     // $ANTLR end "rule__StateMachine__StatesAssignment_5"
 
 
-    // $ANTLR start "rule__StateMachine__InitialeventsAssignment_7"
-    // InternalStateMachine.g:1217:1: rule__StateMachine__InitialeventsAssignment_7 : ( ( RULE_ID ) ) ;
-    public final void rule__StateMachine__InitialeventsAssignment_7() throws RecognitionException {
+    // $ANTLR start "rule__StateMachine__InitialstatesAssignment_7"
+    // InternalStateMachine.g:1217:1: rule__StateMachine__InitialstatesAssignment_7 : ( ( RULE_ID ) ) ;
+    public final void rule__StateMachine__InitialstatesAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -3675,17 +3675,17 @@ public class InternalStateMachineParser extends AbstractInternalContentAssistPar
             // InternalStateMachine.g:1222:2: ( ( RULE_ID ) )
             // InternalStateMachine.g:1223:3: ( RULE_ID )
             {
-             before(grammarAccess.getStateMachineAccess().getInitialeventsStateCrossReference_7_0()); 
+             before(grammarAccess.getStateMachineAccess().getInitialstatesStateCrossReference_7_0()); 
             // InternalStateMachine.g:1224:3: ( RULE_ID )
             // InternalStateMachine.g:1225:4: RULE_ID
             {
-             before(grammarAccess.getStateMachineAccess().getInitialeventsStateIDTerminalRuleCall_7_0_1()); 
+             before(grammarAccess.getStateMachineAccess().getInitialstatesStateIDTerminalRuleCall_7_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getStateMachineAccess().getInitialeventsStateIDTerminalRuleCall_7_0_1()); 
+             after(grammarAccess.getStateMachineAccess().getInitialstatesStateIDTerminalRuleCall_7_0_1()); 
 
             }
 
-             after(grammarAccess.getStateMachineAccess().getInitialeventsStateCrossReference_7_0()); 
+             after(grammarAccess.getStateMachineAccess().getInitialstatesStateCrossReference_7_0()); 
 
             }
 
@@ -3704,12 +3704,12 @@ public class InternalStateMachineParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end "rule__StateMachine__InitialeventsAssignment_7"
+    // $ANTLR end "rule__StateMachine__InitialstatesAssignment_7"
 
 
-    // $ANTLR start "rule__StateMachine__FinaleventsAssignment_9"
-    // InternalStateMachine.g:1236:1: rule__StateMachine__FinaleventsAssignment_9 : ( ( RULE_ID ) ) ;
-    public final void rule__StateMachine__FinaleventsAssignment_9() throws RecognitionException {
+    // $ANTLR start "rule__StateMachine__FinalstatesAssignment_9"
+    // InternalStateMachine.g:1236:1: rule__StateMachine__FinalstatesAssignment_9 : ( ( RULE_ID ) ) ;
+    public final void rule__StateMachine__FinalstatesAssignment_9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -3720,17 +3720,17 @@ public class InternalStateMachineParser extends AbstractInternalContentAssistPar
             // InternalStateMachine.g:1241:2: ( ( RULE_ID ) )
             // InternalStateMachine.g:1242:3: ( RULE_ID )
             {
-             before(grammarAccess.getStateMachineAccess().getFinaleventsStateCrossReference_9_0()); 
+             before(grammarAccess.getStateMachineAccess().getFinalstatesStateCrossReference_9_0()); 
             // InternalStateMachine.g:1243:3: ( RULE_ID )
             // InternalStateMachine.g:1244:4: RULE_ID
             {
-             before(grammarAccess.getStateMachineAccess().getFinaleventsStateIDTerminalRuleCall_9_0_1()); 
+             before(grammarAccess.getStateMachineAccess().getFinalstatesStateIDTerminalRuleCall_9_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getStateMachineAccess().getFinaleventsStateIDTerminalRuleCall_9_0_1()); 
+             after(grammarAccess.getStateMachineAccess().getFinalstatesStateIDTerminalRuleCall_9_0_1()); 
 
             }
 
-             after(grammarAccess.getStateMachineAccess().getFinaleventsStateCrossReference_9_0()); 
+             after(grammarAccess.getStateMachineAccess().getFinalstatesStateCrossReference_9_0()); 
 
             }
 
@@ -3749,7 +3749,7 @@ public class InternalStateMachineParser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end "rule__StateMachine__FinaleventsAssignment_9"
+    // $ANTLR end "rule__StateMachine__FinalstatesAssignment_9"
 
 
     // $ANTLR start "rule__Event__NameAssignment_1"

@@ -484,7 +484,7 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
             				
             otherlv_7=(Token)match(input,RULE_ID,FOLLOW_9); 
 
-            					newLeafNode(otherlv_7, grammarAccess.getStateMachineAccess().getInitialeventsStateCrossReference_7_0());
+            					newLeafNode(otherlv_7, grammarAccess.getStateMachineAccess().getInitialstatesStateCrossReference_7_0());
             				
 
             }
@@ -509,7 +509,7 @@ public class InternalStateMachineParser extends AbstractInternalAntlrParser {
             				
             otherlv_9=(Token)match(input,RULE_ID,FOLLOW_10); 
 
-            					newLeafNode(otherlv_9, grammarAccess.getStateMachineAccess().getFinaleventsStateCrossReference_9_0());
+            					newLeafNode(otherlv_9, grammarAccess.getStateMachineAccess().getFinalstatesStateCrossReference_9_0());
             				
 
             }

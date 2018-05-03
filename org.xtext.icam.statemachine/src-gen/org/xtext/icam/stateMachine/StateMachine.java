@@ -20,8 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.icam.stateMachine.StateMachine#getEvents <em>Events</em>}</li>
  *   <li>{@link org.xtext.icam.stateMachine.StateMachine#getCommands <em>Commands</em>}</li>
  *   <li>{@link org.xtext.icam.stateMachine.StateMachine#getStates <em>States</em>}</li>
- *   <li>{@link org.xtext.icam.stateMachine.StateMachine#getInitialevents <em>Initialevents</em>}</li>
- *   <li>{@link org.xtext.icam.stateMachine.StateMachine#getFinalevents <em>Finalevents</em>}</li>
+ *   <li>{@link org.xtext.icam.stateMachine.StateMachine#getInitialstates <em>Initialstates</em>}</li>
+ *   <li>{@link org.xtext.icam.stateMachine.StateMachine#getFinalstates <em>Finalstates</em>}</li>
  * </ul>
  *
  * @see org.xtext.icam.stateMachine.StateMachinePackage#getStateMachine()
@@ -105,35 +105,55 @@ public interface StateMachine extends EObject
   EList<State> getStates();
 
   /**
-   * Returns the value of the '<em><b>Initialevents</b></em>' reference list.
-   * The list contents are of type {@link org.xtext.icam.stateMachine.State}.
+   * Returns the value of the '<em><b>Initialstates</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Initialevents</em>' reference list isn't clear,
+   * If the meaning of the '<em>Initialstates</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Initialevents</em>' reference list.
-   * @see org.xtext.icam.stateMachine.StateMachinePackage#getStateMachine_Initialevents()
+   * @return the value of the '<em>Initialstates</em>' reference.
+   * @see #setInitialstates(State)
+   * @see org.xtext.icam.stateMachine.StateMachinePackage#getStateMachine_Initialstates()
    * @model
    * @generated
    */
-  EList<State> getInitialevents();
+  State getInitialstates();
 
   /**
-   * Returns the value of the '<em><b>Finalevents</b></em>' reference list.
-   * The list contents are of type {@link org.xtext.icam.stateMachine.State}.
+   * Sets the value of the '{@link org.xtext.icam.stateMachine.StateMachine#getInitialstates <em>Initialstates</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Initialstates</em>' reference.
+   * @see #getInitialstates()
+   * @generated
+   */
+  void setInitialstates(State value);
+
+  /**
+   * Returns the value of the '<em><b>Finalstates</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Finalevents</em>' reference list isn't clear,
+   * If the meaning of the '<em>Finalstates</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Finalevents</em>' reference list.
-   * @see org.xtext.icam.stateMachine.StateMachinePackage#getStateMachine_Finalevents()
+   * @return the value of the '<em>Finalstates</em>' reference.
+   * @see #setFinalstates(State)
+   * @see org.xtext.icam.stateMachine.StateMachinePackage#getStateMachine_Finalstates()
    * @model
    * @generated
    */
-  EList<State> getFinalevents();
+  State getFinalstates();
+
+  /**
+   * Sets the value of the '{@link org.xtext.icam.stateMachine.StateMachine#getFinalstates <em>Finalstates</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Finalstates</em>' reference.
+   * @see #getFinalstates()
+   * @generated
+   */
+  void setFinalstates(State value);
 
 } // StateMachine

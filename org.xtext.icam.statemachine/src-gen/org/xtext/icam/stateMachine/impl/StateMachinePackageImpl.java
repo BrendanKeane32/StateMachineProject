@@ -224,7 +224,7 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getStateMachine_Initialevents()
+  public EReference getStateMachine_Initialstates()
   {
     return (EReference)stateMachineEClass.getEStructuralFeatures().get(4);
   }
@@ -234,7 +234,7 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getStateMachine_Finalevents()
+  public EReference getStateMachine_Finalstates()
   {
     return (EReference)stateMachineEClass.getEStructuralFeatures().get(5);
   }
@@ -427,8 +427,8 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
     createEReference(stateMachineEClass, STATE_MACHINE__EVENTS);
     createEReference(stateMachineEClass, STATE_MACHINE__COMMANDS);
     createEReference(stateMachineEClass, STATE_MACHINE__STATES);
-    createEReference(stateMachineEClass, STATE_MACHINE__INITIALEVENTS);
-    createEReference(stateMachineEClass, STATE_MACHINE__FINALEVENTS);
+    createEReference(stateMachineEClass, STATE_MACHINE__INITIALSTATES);
+    createEReference(stateMachineEClass, STATE_MACHINE__FINALSTATES);
 
     eventEClass = createEClass(EVENT);
     createEAttribute(eventEClass, EVENT__NAME);
@@ -492,8 +492,8 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
     initEReference(getStateMachine_Events(), this.getEvent(), null, "events", null, 0, -1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStateMachine_Commands(), this.getCommand(), null, "commands", null, 0, -1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStateMachine_States(), this.getState(), null, "states", null, 0, -1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStateMachine_Initialevents(), this.getState(), null, "initialevents", null, 0, -1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStateMachine_Finalevents(), this.getState(), null, "finalevents", null, 0, -1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStateMachine_Initialstates(), this.getState(), null, "initialstates", null, 0, 1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStateMachine_Finalstates(), this.getState(), null, "finalstates", null, 0, 1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEvent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

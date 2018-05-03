@@ -209,7 +209,7 @@ ruleStateMachine returns [EObject current=null]
 				}
 				otherlv_7=RULE_ID
 				{
-					newLeafNode(otherlv_7, grammarAccess.getStateMachineAccess().getInitialeventsStateCrossReference_7_0());
+					newLeafNode(otherlv_7, grammarAccess.getStateMachineAccess().getInitialstatesStateCrossReference_7_0());
 				}
 			)
 		)
@@ -226,7 +226,7 @@ ruleStateMachine returns [EObject current=null]
 				}
 				otherlv_9=RULE_ID
 				{
-					newLeafNode(otherlv_9, grammarAccess.getStateMachineAccess().getFinaleventsStateCrossReference_9_0());
+					newLeafNode(otherlv_9, grammarAccess.getStateMachineAccess().getFinalstatesStateCrossReference_9_0());
 				}
 			)
 		)

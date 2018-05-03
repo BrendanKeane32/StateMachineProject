@@ -55,13 +55,13 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cStatesAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cStatesStateParserRuleCall_5_0 = (RuleCall)cStatesAssignment_5.eContents().get(0);
 		private final Keyword cInitialKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cInitialeventsAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final CrossReference cInitialeventsStateCrossReference_7_0 = (CrossReference)cInitialeventsAssignment_7.eContents().get(0);
-		private final RuleCall cInitialeventsStateIDTerminalRuleCall_7_0_1 = (RuleCall)cInitialeventsStateCrossReference_7_0.eContents().get(1);
+		private final Assignment cInitialstatesAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final CrossReference cInitialstatesStateCrossReference_7_0 = (CrossReference)cInitialstatesAssignment_7.eContents().get(0);
+		private final RuleCall cInitialstatesStateIDTerminalRuleCall_7_0_1 = (RuleCall)cInitialstatesStateCrossReference_7_0.eContents().get(1);
 		private final Keyword cFinalKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Assignment cFinaleventsAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final CrossReference cFinaleventsStateCrossReference_9_0 = (CrossReference)cFinaleventsAssignment_9.eContents().get(0);
-		private final RuleCall cFinaleventsStateIDTerminalRuleCall_9_0_1 = (RuleCall)cFinaleventsStateCrossReference_9_0.eContents().get(1);
+		private final Assignment cFinalstatesAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final CrossReference cFinalstatesStateCrossReference_9_0 = (CrossReference)cFinalstatesAssignment_9.eContents().get(0);
+		private final RuleCall cFinalstatesStateIDTerminalRuleCall_9_0_1 = (RuleCall)cFinalstatesStateCrossReference_9_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//StateMachine:
@@ -69,13 +69,13 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 		//	events+=Event*
 		//	commands+=Command+
 		//	states+=State*
-		//	'initial' initialevents+=[State]
-		//	'final' finalevents+=[State]
+		//	'initial' initialstates=[State]
+		//	'final' finalstates=[State]
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'machine' name=ID '{' events+=Event* commands+=Command+ states+=State* 'initial' initialevents+=[State] 'final'
-		//finalevents+=[State] '}'
+		//'machine' name=ID '{' events+=Event* commands+=Command+ states+=State* 'initial' initialstates=[State] 'final'
+		//finalstates=[State] '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'machine'
@@ -111,26 +111,26 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 		//'initial'
 		public Keyword getInitialKeyword_6() { return cInitialKeyword_6; }
 		
-		//initialevents+=[State]
-		public Assignment getInitialeventsAssignment_7() { return cInitialeventsAssignment_7; }
+		//initialstates=[State]
+		public Assignment getInitialstatesAssignment_7() { return cInitialstatesAssignment_7; }
 		
 		//[State]
-		public CrossReference getInitialeventsStateCrossReference_7_0() { return cInitialeventsStateCrossReference_7_0; }
+		public CrossReference getInitialstatesStateCrossReference_7_0() { return cInitialstatesStateCrossReference_7_0; }
 		
 		//ID
-		public RuleCall getInitialeventsStateIDTerminalRuleCall_7_0_1() { return cInitialeventsStateIDTerminalRuleCall_7_0_1; }
+		public RuleCall getInitialstatesStateIDTerminalRuleCall_7_0_1() { return cInitialstatesStateIDTerminalRuleCall_7_0_1; }
 		
 		//'final'
 		public Keyword getFinalKeyword_8() { return cFinalKeyword_8; }
 		
-		//finalevents+=[State]
-		public Assignment getFinaleventsAssignment_9() { return cFinaleventsAssignment_9; }
+		//finalstates=[State]
+		public Assignment getFinalstatesAssignment_9() { return cFinalstatesAssignment_9; }
 		
 		//[State]
-		public CrossReference getFinaleventsStateCrossReference_9_0() { return cFinaleventsStateCrossReference_9_0; }
+		public CrossReference getFinalstatesStateCrossReference_9_0() { return cFinalstatesStateCrossReference_9_0; }
 		
 		//ID
-		public RuleCall getFinaleventsStateIDTerminalRuleCall_9_0_1() { return cFinaleventsStateIDTerminalRuleCall_9_0_1; }
+		public RuleCall getFinalstatesStateIDTerminalRuleCall_9_0_1() { return cFinalstatesStateIDTerminalRuleCall_9_0_1; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
@@ -424,8 +424,8 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 	//	events+=Event*
 	//	commands+=Command+
 	//	states+=State*
-	//	'initial' initialevents+=[State]
-	//	'final' finalevents+=[State]
+	//	'initial' initialstates=[State]
+	//	'final' finalstates=[State]
 	//	'}';
 	public StateMachineElements getStateMachineAccess() {
 		return pStateMachine;

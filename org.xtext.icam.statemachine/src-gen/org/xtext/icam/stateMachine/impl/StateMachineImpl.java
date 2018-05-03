@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.icam.stateMachine.Command;
@@ -38,8 +37,8 @@ import org.xtext.icam.stateMachine.StateMachinePackage;
  *   <li>{@link org.xtext.icam.stateMachine.impl.StateMachineImpl#getEvents <em>Events</em>}</li>
  *   <li>{@link org.xtext.icam.stateMachine.impl.StateMachineImpl#getCommands <em>Commands</em>}</li>
  *   <li>{@link org.xtext.icam.stateMachine.impl.StateMachineImpl#getStates <em>States</em>}</li>
- *   <li>{@link org.xtext.icam.stateMachine.impl.StateMachineImpl#getInitialevents <em>Initialevents</em>}</li>
- *   <li>{@link org.xtext.icam.stateMachine.impl.StateMachineImpl#getFinalevents <em>Finalevents</em>}</li>
+ *   <li>{@link org.xtext.icam.stateMachine.impl.StateMachineImpl#getInitialstates <em>Initialstates</em>}</li>
+ *   <li>{@link org.xtext.icam.stateMachine.impl.StateMachineImpl#getFinalstates <em>Finalstates</em>}</li>
  * </ul>
  *
  * @generated
@@ -97,24 +96,24 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
   protected EList<State> states;
 
   /**
-   * The cached value of the '{@link #getInitialevents() <em>Initialevents</em>}' reference list.
+   * The cached value of the '{@link #getInitialstates() <em>Initialstates</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getInitialevents()
+   * @see #getInitialstates()
    * @generated
    * @ordered
    */
-  protected EList<State> initialevents;
+  protected State initialstates;
 
   /**
-   * The cached value of the '{@link #getFinalevents() <em>Finalevents</em>}' reference list.
+   * The cached value of the '{@link #getFinalstates() <em>Finalstates</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFinalevents()
+   * @see #getFinalstates()
    * @generated
    * @ordered
    */
-  protected EList<State> finalevents;
+  protected State finalstates;
 
   /**
    * <!-- begin-user-doc -->
@@ -207,13 +206,19 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<State> getInitialevents()
+  public State getInitialstates()
   {
-    if (initialevents == null)
+    if (initialstates != null && initialstates.eIsProxy())
     {
-      initialevents = new EObjectResolvingEList<State>(State.class, this, StateMachinePackage.STATE_MACHINE__INITIALEVENTS);
+      InternalEObject oldInitialstates = (InternalEObject)initialstates;
+      initialstates = (State)eResolveProxy(oldInitialstates);
+      if (initialstates != oldInitialstates)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, StateMachinePackage.STATE_MACHINE__INITIALSTATES, oldInitialstates, initialstates));
+      }
     }
-    return initialevents;
+    return initialstates;
   }
 
   /**
@@ -221,13 +226,65 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<State> getFinalevents()
+  public State basicGetInitialstates()
   {
-    if (finalevents == null)
+    return initialstates;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setInitialstates(State newInitialstates)
+  {
+    State oldInitialstates = initialstates;
+    initialstates = newInitialstates;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, StateMachinePackage.STATE_MACHINE__INITIALSTATES, oldInitialstates, initialstates));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public State getFinalstates()
+  {
+    if (finalstates != null && finalstates.eIsProxy())
     {
-      finalevents = new EObjectResolvingEList<State>(State.class, this, StateMachinePackage.STATE_MACHINE__FINALEVENTS);
+      InternalEObject oldFinalstates = (InternalEObject)finalstates;
+      finalstates = (State)eResolveProxy(oldFinalstates);
+      if (finalstates != oldFinalstates)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, StateMachinePackage.STATE_MACHINE__FINALSTATES, oldFinalstates, finalstates));
+      }
     }
-    return finalevents;
+    return finalstates;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public State basicGetFinalstates()
+  {
+    return finalstates;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFinalstates(State newFinalstates)
+  {
+    State oldFinalstates = finalstates;
+    finalstates = newFinalstates;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, StateMachinePackage.STATE_MACHINE__FINALSTATES, oldFinalstates, finalstates));
   }
 
   /**
@@ -268,10 +325,12 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
         return getCommands();
       case StateMachinePackage.STATE_MACHINE__STATES:
         return getStates();
-      case StateMachinePackage.STATE_MACHINE__INITIALEVENTS:
-        return getInitialevents();
-      case StateMachinePackage.STATE_MACHINE__FINALEVENTS:
-        return getFinalevents();
+      case StateMachinePackage.STATE_MACHINE__INITIALSTATES:
+        if (resolve) return getInitialstates();
+        return basicGetInitialstates();
+      case StateMachinePackage.STATE_MACHINE__FINALSTATES:
+        if (resolve) return getFinalstates();
+        return basicGetFinalstates();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -302,13 +361,11 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
         getStates().clear();
         getStates().addAll((Collection<? extends State>)newValue);
         return;
-      case StateMachinePackage.STATE_MACHINE__INITIALEVENTS:
-        getInitialevents().clear();
-        getInitialevents().addAll((Collection<? extends State>)newValue);
+      case StateMachinePackage.STATE_MACHINE__INITIALSTATES:
+        setInitialstates((State)newValue);
         return;
-      case StateMachinePackage.STATE_MACHINE__FINALEVENTS:
-        getFinalevents().clear();
-        getFinalevents().addAll((Collection<? extends State>)newValue);
+      case StateMachinePackage.STATE_MACHINE__FINALSTATES:
+        setFinalstates((State)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -336,11 +393,11 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
       case StateMachinePackage.STATE_MACHINE__STATES:
         getStates().clear();
         return;
-      case StateMachinePackage.STATE_MACHINE__INITIALEVENTS:
-        getInitialevents().clear();
+      case StateMachinePackage.STATE_MACHINE__INITIALSTATES:
+        setInitialstates((State)null);
         return;
-      case StateMachinePackage.STATE_MACHINE__FINALEVENTS:
-        getFinalevents().clear();
+      case StateMachinePackage.STATE_MACHINE__FINALSTATES:
+        setFinalstates((State)null);
         return;
     }
     super.eUnset(featureID);
@@ -364,10 +421,10 @@ public class StateMachineImpl extends MinimalEObjectImpl.Container implements St
         return commands != null && !commands.isEmpty();
       case StateMachinePackage.STATE_MACHINE__STATES:
         return states != null && !states.isEmpty();
-      case StateMachinePackage.STATE_MACHINE__INITIALEVENTS:
-        return initialevents != null && !initialevents.isEmpty();
-      case StateMachinePackage.STATE_MACHINE__FINALEVENTS:
-        return finalevents != null && !finalevents.isEmpty();
+      case StateMachinePackage.STATE_MACHINE__INITIALSTATES:
+        return initialstates != null;
+      case StateMachinePackage.STATE_MACHINE__FINALSTATES:
+        return finalstates != null;
     }
     return super.eIsSet(featureID);
   }
