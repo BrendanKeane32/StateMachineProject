@@ -7,9 +7,10 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import org.xtext.icam.stateMachine.Command
 import org.xtext.icam.stateMachine.State
 import org.xtext.icam.stateMachine.StateMachine
+import org.xtext.icam.stateMachine.Event
+import java.util.ArrayList
 
 /**
  * Generates code from your model files on save.
@@ -18,12 +19,10 @@ import org.xtext.icam.stateMachine.StateMachine
  */
 class StateMachineGenerator extends AbstractGenerator {
 
-	 
-	
-	
-	State firstState
-	State lastState
-	String middleOne
+	ArrayList<String> types = new ArrayList<String>();
+	ArrayList<String> parameters = new ArrayList<String>();
+	ArrayList<String> jointList = new ArrayList<String>();
+	int i = 0;
 	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		resource.allContents.filter(typeof(StateMachine)).forEach[it.generateMachine(fsa,resource)]  //gen machine
@@ -32,9 +31,6 @@ class StateMachineGenerator extends AbstractGenerator {
 		}
 	
 	def void generateMachine(StateMachine machine, IFileSystemAccess2 fsa,Resource resource) {
-		firstState = resource.allContents.filter(typeof(State)).head
-		lastState = resource.allContents.filter(typeof(State)).last
-		resource.allContents.filter(typeof(State)).forEach[it.verifyMe(firstState,lastState)]
 		fsa.generateFile(machine.name+".java", machine.toJavaCode)
 	}
 	
@@ -45,74 +41,69 @@ class StateMachineGenerator extends AbstractGenerator {
 	def void generateEnum(StateMachine machine, IFileSystemAccess2 fsa,Resource resource) {
 		fsa.generateFile(machine.name+"State.java", machine.toEnumCode)
 	}
+			
 	
-	def void verifyMe(State state, State firststate, State laststate){
-		if((!state.name.equals(firststate.name)) && (!state.name.equals(laststate.name))){
-			middleOne=state.name
-		}
-	}
+	//state = "«s.transitions.map(t | t.state.name).join»";
+	//«a.condition.name.toFirstUpper»()==true
 	
 	def CharSequence toJavaCode(StateMachine machine)'''
 	//Generated code, do not edit
 				
-	abstract class «machine.name» implements «machine.name»Interface{
-					
-					
-		String state = "«machine.initialstates.name»";
-					
-			public void loop(){
-			if(state == "«machine.initialstates.name»"){
-				if(event == null){
-					else if(timerUp()==true && c){
-						state = "«middleOne»";}
+	abstract class «machine.name» implements «machine.name»Interface {
+		
+		//
+		protected «machine.name»State state = «machine.name»State.«machine.initialstates.name»;				
+		//String state = "«machine.initialstates.name»";
+			
+			public void loop() {
+				while (true) {
+			«FOR s: machine.states»
+				if(state == «machine.name»State.«s.name»){
+					turn«s.name.toFirstUpper»();
+					«FOR a:s.transitions»
+					if(«a.event.name.toFirstUpper»()==true && «a.condition.name.toFirstUpper»()==true){
+						state = «machine.name»State.«a.state.name»;
+						}
+					«ENDFOR»
 					}
-				}
-				if(state == "«middleOne»"){
-					if(event == null){
-						else if(timerUp() && c){
-							state = "«machine.finalstates.name»";}
-					}
-				}
-						
-			if(state == "«machine.finalstates.name»"){
-				if(event == null){
-					else if(timerUp() && c){
-						reset();}
-					}
-				}
+			«ENDFOR»		
 			}
-						
-			public void reset(){
-				state = "«machine.initialstates.name»";
-				}
 			}
+		}
 		'''	
 			
 			def CharSequence toInterfaceCode(StateMachine machine)'''
 			
 			public interface «machine.name»Interface {
 				
-				void setup();
+				void setUp();
 				
-				void turnGreen();
+				«FOR s: machine.states»
+				public void turn«s.name.toFirstUpper»();
+				«ENDFOR»
 				
-				void turnRed();
+				«FOR e: machine.events»
 				
-				void turnAmber();
+				«FOR d:e.tests»
+				«FOR f:d.args»
 				
-				boolean timerUp();
-			}
+				«e.returnType.type» «e.name» («d.types.map[t | t.type].join( f.name.value)»);
+				«ENDFOR»
+				«ENDFOR»
+				
+				«ENDFOR»
+				}
 			'''
+			//s.transitions.map(t | t.state.name).join
 			
 			def CharSequence toEnumCode(StateMachine machine)'''
 			
 			public enum «machine.name»State {
-				int i = «machine.states.toArray.length-1»;
-				
 				
 			«FOR c:machine.states»
-					«c.name»,
-			«ENDFOR»;}
+			«c.name»,
+			«ENDFOR»};
 			'''
+			
+			
 }
-

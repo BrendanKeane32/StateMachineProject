@@ -10,6 +10,9 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 import org.xtext.icam.services.StateMachineGrammarAccess;
@@ -18,17 +21,29 @@ import org.xtext.icam.services.StateMachineGrammarAccess;
 public class StateMachineSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected StateMachineGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_DeclaredParameter___INTTerminalRuleCall_1_0_FullStopKeyword_1_1_INTTerminalRuleCall_1_2__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (StateMachineGrammarAccess) access;
+		match_DeclaredParameter___INTTerminalRuleCall_1_0_FullStopKeyword_1_1_INTTerminalRuleCall_1_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getDeclaredParameterAccess().getINTTerminalRuleCall_1_0()), new TokenAlias(false, false, grammarAccess.getDeclaredParameterAccess().getFullStopKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getDeclaredParameterAccess().getINTTerminalRuleCall_1_2()));
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (ruleCall.getRule() == grammarAccess.getINTRule())
+			return getINTToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
+	/**
+	 * terminal INT returns ecore::EInt: ('0'..'9')+;
+	 */
+	protected String getINTToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "";
+	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -36,8 +51,21 @@ public class StateMachineSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if (match_DeclaredParameter___INTTerminalRuleCall_1_0_FullStopKeyword_1_1_INTTerminalRuleCall_1_2__q.equals(syntax))
+				emit_DeclaredParameter___INTTerminalRuleCall_1_0_FullStopKeyword_1_1_INTTerminalRuleCall_1_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     (INT '.' INT)?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=VarName (ambiguity) (rule end)
+	 */
+	protected void emit_DeclaredParameter___INTTerminalRuleCall_1_0_FullStopKeyword_1_1_INTTerminalRuleCall_1_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

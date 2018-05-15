@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.icam.stateMachine.Command;
-import org.xtext.icam.stateMachine.Modifier;
 import org.xtext.icam.stateMachine.State;
 import org.xtext.icam.stateMachine.StateMachinePackage;
 import org.xtext.icam.stateMachine.Transition;
@@ -34,7 +33,6 @@ import org.xtext.icam.stateMachine.Transition;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.icam.stateMachine.impl.StateImpl#getModifier <em>Modifier</em>}</li>
  *   <li>{@link org.xtext.icam.stateMachine.impl.StateImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.icam.stateMachine.impl.StateImpl#getActions <em>Actions</em>}</li>
  *   <li>{@link org.xtext.icam.stateMachine.impl.StateImpl#getTransitions <em>Transitions</em>}</li>
@@ -44,16 +42,6 @@ import org.xtext.icam.stateMachine.Transition;
  */
 public class StateImpl extends MinimalEObjectImpl.Container implements State
 {
-  /**
-   * The cached value of the '{@link #getModifier() <em>Modifier</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getModifier()
-   * @generated
-   * @ordered
-   */
-  protected EList<Modifier> modifier;
-
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -120,20 +108,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Modifier> getModifier()
-  {
-    if (modifier == null)
-    {
-      modifier = new EObjectContainmentEList<Modifier>(Modifier.class, this, StateMachinePackage.STATE__MODIFIER);
-    }
-    return modifier;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getName()
   {
     return name;
@@ -190,8 +164,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
   {
     switch (featureID)
     {
-      case StateMachinePackage.STATE__MODIFIER:
-        return ((InternalEList<?>)getModifier()).basicRemove(otherEnd, msgs);
       case StateMachinePackage.STATE__TRANSITIONS:
         return ((InternalEList<?>)getTransitions()).basicRemove(otherEnd, msgs);
     }
@@ -208,8 +180,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
   {
     switch (featureID)
     {
-      case StateMachinePackage.STATE__MODIFIER:
-        return getModifier();
       case StateMachinePackage.STATE__NAME:
         return getName();
       case StateMachinePackage.STATE__ACTIONS:
@@ -231,10 +201,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
   {
     switch (featureID)
     {
-      case StateMachinePackage.STATE__MODIFIER:
-        getModifier().clear();
-        getModifier().addAll((Collection<? extends Modifier>)newValue);
-        return;
       case StateMachinePackage.STATE__NAME:
         setName((String)newValue);
         return;
@@ -260,9 +226,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
   {
     switch (featureID)
     {
-      case StateMachinePackage.STATE__MODIFIER:
-        getModifier().clear();
-        return;
       case StateMachinePackage.STATE__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -286,8 +249,6 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State
   {
     switch (featureID)
     {
-      case StateMachinePackage.STATE__MODIFIER:
-        return modifier != null && !modifier.isEmpty();
       case StateMachinePackage.STATE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case StateMachinePackage.STATE__ACTIONS:

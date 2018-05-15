@@ -170,13 +170,31 @@ public interface StateMachinePackage extends EPackage
   int EVENT = 2;
 
   /**
+   * The feature id for the '<em><b>Return Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EVENT__RETURN_TYPE = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EVENT__NAME = 0;
+  int EVENT__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Tests</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EVENT__TESTS = 2;
 
   /**
    * The number of structural features of the '<em>Event</em>' class.
@@ -185,7 +203,44 @@ public interface StateMachinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int EVENT_FEATURE_COUNT = 1;
+  int EVENT_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.icam.stateMachine.impl.TestImpl <em>Test</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.icam.stateMachine.impl.TestImpl
+   * @see org.xtext.icam.stateMachine.impl.StateMachinePackageImpl#getTest()
+   * @generated
+   */
+  int TEST = 3;
+
+  /**
+   * The feature id for the '<em><b>Types</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEST__TYPES = 0;
+
+  /**
+   * The feature id for the '<em><b>Args</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEST__ARGS = 1;
+
+  /**
+   * The number of structural features of the '<em>Test</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEST_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.icam.stateMachine.impl.CommandImpl <em>Command</em>}' class.
@@ -195,7 +250,7 @@ public interface StateMachinePackage extends EPackage
    * @see org.xtext.icam.stateMachine.impl.StateMachinePackageImpl#getCommand()
    * @generated
    */
-  int COMMAND = 3;
+  int COMMAND = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -223,7 +278,7 @@ public interface StateMachinePackage extends EPackage
    * @see org.xtext.icam.stateMachine.impl.StateMachinePackageImpl#getModifier()
    * @generated
    */
-  int MODIFIER = 4;
+  int MODIFIER = 5;
 
   /**
    * The feature id for the '<em><b>Visibility</b></em>' attribute list.
@@ -251,16 +306,7 @@ public interface StateMachinePackage extends EPackage
    * @see org.xtext.icam.stateMachine.impl.StateMachinePackageImpl#getState()
    * @generated
    */
-  int STATE = 5;
-
-  /**
-   * The feature id for the '<em><b>Modifier</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATE__MODIFIER = 0;
+  int STATE = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -269,7 +315,7 @@ public interface StateMachinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATE__NAME = 1;
+  int STATE__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Actions</b></em>' reference list.
@@ -278,7 +324,7 @@ public interface StateMachinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATE__ACTIONS = 2;
+  int STATE__ACTIONS = 1;
 
   /**
    * The feature id for the '<em><b>Transitions</b></em>' containment reference list.
@@ -287,7 +333,7 @@ public interface StateMachinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATE__TRANSITIONS = 3;
+  int STATE__TRANSITIONS = 2;
 
   /**
    * The number of structural features of the '<em>State</em>' class.
@@ -296,7 +342,7 @@ public interface StateMachinePackage extends EPackage
    * @generated
    * @ordered
    */
-  int STATE_FEATURE_COUNT = 4;
+  int STATE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.icam.stateMachine.impl.TransitionImpl <em>Transition</em>}' class.
@@ -306,7 +352,7 @@ public interface StateMachinePackage extends EPackage
    * @see org.xtext.icam.stateMachine.impl.StateMachinePackageImpl#getTransition()
    * @generated
    */
-  int TRANSITION = 6;
+  int TRANSITION = 7;
 
   /**
    * The feature id for the '<em><b>Event</b></em>' reference.
@@ -327,13 +373,190 @@ public interface StateMachinePackage extends EPackage
   int TRANSITION__STATE = 1;
 
   /**
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSITION__CONDITION = 2;
+
+  /**
    * The number of structural features of the '<em>Transition</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TRANSITION_FEATURE_COUNT = 2;
+  int TRANSITION_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.icam.stateMachine.impl.ConditionImpl <em>Condition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.icam.stateMachine.impl.ConditionImpl
+   * @see org.xtext.icam.stateMachine.impl.StateMachinePackageImpl#getCondition()
+   * @generated
+   */
+  int CONDITION = 8;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Condition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.icam.stateMachine.impl.DeclaredParameterImpl <em>Declared Parameter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.icam.stateMachine.impl.DeclaredParameterImpl
+   * @see org.xtext.icam.stateMachine.impl.StateMachinePackageImpl#getDeclaredParameter()
+   * @generated
+   */
+  int DECLARED_PARAMETER = 9;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECLARED_PARAMETER__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Declared Parameter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECLARED_PARAMETER_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.icam.stateMachine.impl.VarNameImpl <em>Var Name</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.icam.stateMachine.impl.VarNameImpl
+   * @see org.xtext.icam.stateMachine.impl.StateMachinePackageImpl#getVarName()
+   * @generated
+   */
+  int VAR_NAME = 10;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_NAME__VALUE = 0;
+
+  /**
+   * The number of structural features of the '<em>Var Name</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_NAME_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.icam.stateMachine.impl.TypeImpl <em>Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.icam.stateMachine.impl.TypeImpl
+   * @see org.xtext.icam.stateMachine.impl.StateMachinePackageImpl#getType()
+   * @generated
+   */
+  int TYPE = 11;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE__TYPE = 0;
+
+  /**
+   * The number of structural features of the '<em>Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.icam.stateMachine.impl.StringTypeImpl <em>String Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.icam.stateMachine.impl.StringTypeImpl
+   * @see org.xtext.icam.stateMachine.impl.StateMachinePackageImpl#getStringType()
+   * @generated
+   */
+  int STRING_TYPE = 12;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_TYPE__TYPE = TYPE__TYPE;
+
+  /**
+   * The number of structural features of the '<em>String Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.icam.stateMachine.impl.FloatTypeImpl <em>Float Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.icam.stateMachine.impl.FloatTypeImpl
+   * @see org.xtext.icam.stateMachine.impl.StateMachinePackageImpl#getFloatType()
+   * @generated
+   */
+  int FLOAT_TYPE = 13;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FLOAT_TYPE__TYPE = TYPE__TYPE;
+
+  /**
+   * The number of structural features of the '<em>Float Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FLOAT_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.xtext.icam.stateMachine.Visibility <em>Visibility</em>}' enum.
@@ -343,7 +566,7 @@ public interface StateMachinePackage extends EPackage
    * @see org.xtext.icam.stateMachine.impl.StateMachinePackageImpl#getVisibility()
    * @generated
    */
-  int VISIBILITY = 7;
+  int VISIBILITY = 14;
 
 
   /**
@@ -454,6 +677,17 @@ public interface StateMachinePackage extends EPackage
   EClass getEvent();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.icam.stateMachine.Event#getReturnType <em>Return Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Return Type</em>'.
+   * @see org.xtext.icam.stateMachine.Event#getReturnType()
+   * @see #getEvent()
+   * @generated
+   */
+  EReference getEvent_ReturnType();
+
+  /**
    * Returns the meta object for the attribute '{@link org.xtext.icam.stateMachine.Event#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -463,6 +697,49 @@ public interface StateMachinePackage extends EPackage
    * @generated
    */
   EAttribute getEvent_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.icam.stateMachine.Event#getTests <em>Tests</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Tests</em>'.
+   * @see org.xtext.icam.stateMachine.Event#getTests()
+   * @see #getEvent()
+   * @generated
+   */
+  EReference getEvent_Tests();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.icam.stateMachine.Test <em>Test</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Test</em>'.
+   * @see org.xtext.icam.stateMachine.Test
+   * @generated
+   */
+  EClass getTest();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.icam.stateMachine.Test#getTypes <em>Types</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Types</em>'.
+   * @see org.xtext.icam.stateMachine.Test#getTypes()
+   * @see #getTest()
+   * @generated
+   */
+  EReference getTest_Types();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.icam.stateMachine.Test#getArgs <em>Args</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Args</em>'.
+   * @see org.xtext.icam.stateMachine.Test#getArgs()
+   * @see #getTest()
+   * @generated
+   */
+  EReference getTest_Args();
 
   /**
    * Returns the meta object for class '{@link org.xtext.icam.stateMachine.Command <em>Command</em>}'.
@@ -515,17 +792,6 @@ public interface StateMachinePackage extends EPackage
    * @generated
    */
   EClass getState();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.icam.stateMachine.State#getModifier <em>Modifier</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Modifier</em>'.
-   * @see org.xtext.icam.stateMachine.State#getModifier()
-   * @see #getState()
-   * @generated
-   */
-  EReference getState_Modifier();
 
   /**
    * Returns the meta object for the attribute '{@link org.xtext.icam.stateMachine.State#getName <em>Name</em>}'.
@@ -591,6 +857,121 @@ public interface StateMachinePackage extends EPackage
    * @generated
    */
   EReference getTransition_State();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.icam.stateMachine.Transition#getCondition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Condition</em>'.
+   * @see org.xtext.icam.stateMachine.Transition#getCondition()
+   * @see #getTransition()
+   * @generated
+   */
+  EReference getTransition_Condition();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.icam.stateMachine.Condition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Condition</em>'.
+   * @see org.xtext.icam.stateMachine.Condition
+   * @generated
+   */
+  EClass getCondition();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.icam.stateMachine.Condition#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.icam.stateMachine.Condition#getName()
+   * @see #getCondition()
+   * @generated
+   */
+  EAttribute getCondition_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.icam.stateMachine.DeclaredParameter <em>Declared Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Declared Parameter</em>'.
+   * @see org.xtext.icam.stateMachine.DeclaredParameter
+   * @generated
+   */
+  EClass getDeclaredParameter();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.icam.stateMachine.DeclaredParameter#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Name</em>'.
+   * @see org.xtext.icam.stateMachine.DeclaredParameter#getName()
+   * @see #getDeclaredParameter()
+   * @generated
+   */
+  EReference getDeclaredParameter_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.icam.stateMachine.VarName <em>Var Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Var Name</em>'.
+   * @see org.xtext.icam.stateMachine.VarName
+   * @generated
+   */
+  EClass getVarName();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.icam.stateMachine.VarName#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.icam.stateMachine.VarName#getValue()
+   * @see #getVarName()
+   * @generated
+   */
+  EAttribute getVarName_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.icam.stateMachine.Type <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Type</em>'.
+   * @see org.xtext.icam.stateMachine.Type
+   * @generated
+   */
+  EClass getType();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.icam.stateMachine.Type#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see org.xtext.icam.stateMachine.Type#getType()
+   * @see #getType()
+   * @generated
+   */
+  EAttribute getType_Type();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.icam.stateMachine.StringType <em>String Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>String Type</em>'.
+   * @see org.xtext.icam.stateMachine.StringType
+   * @generated
+   */
+  EClass getStringType();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.icam.stateMachine.FloatType <em>Float Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Float Type</em>'.
+   * @see org.xtext.icam.stateMachine.FloatType
+   * @generated
+   */
+  EClass getFloatType();
 
   /**
    * Returns the meta object for enum '{@link org.xtext.icam.stateMachine.Visibility <em>Visibility</em>}'.
@@ -712,12 +1093,54 @@ public interface StateMachinePackage extends EPackage
     EClass EVENT = eINSTANCE.getEvent();
 
     /**
+     * The meta object literal for the '<em><b>Return Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EVENT__RETURN_TYPE = eINSTANCE.getEvent_ReturnType();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute EVENT__NAME = eINSTANCE.getEvent_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Tests</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EVENT__TESTS = eINSTANCE.getEvent_Tests();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.icam.stateMachine.impl.TestImpl <em>Test</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.icam.stateMachine.impl.TestImpl
+     * @see org.xtext.icam.stateMachine.impl.StateMachinePackageImpl#getTest()
+     * @generated
+     */
+    EClass TEST = eINSTANCE.getTest();
+
+    /**
+     * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TEST__TYPES = eINSTANCE.getTest_Types();
+
+    /**
+     * The meta object literal for the '<em><b>Args</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TEST__ARGS = eINSTANCE.getTest_Args();
 
     /**
      * The meta object literal for the '{@link org.xtext.icam.stateMachine.impl.CommandImpl <em>Command</em>}' class.
@@ -764,14 +1187,6 @@ public interface StateMachinePackage extends EPackage
      * @generated
      */
     EClass STATE = eINSTANCE.getState();
-
-    /**
-     * The meta object literal for the '<em><b>Modifier</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference STATE__MODIFIER = eINSTANCE.getState_Modifier();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -822,6 +1237,106 @@ public interface StateMachinePackage extends EPackage
      * @generated
      */
     EReference TRANSITION__STATE = eINSTANCE.getTransition_State();
+
+    /**
+     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRANSITION__CONDITION = eINSTANCE.getTransition_Condition();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.icam.stateMachine.impl.ConditionImpl <em>Condition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.icam.stateMachine.impl.ConditionImpl
+     * @see org.xtext.icam.stateMachine.impl.StateMachinePackageImpl#getCondition()
+     * @generated
+     */
+    EClass CONDITION = eINSTANCE.getCondition();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONDITION__NAME = eINSTANCE.getCondition_Name();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.icam.stateMachine.impl.DeclaredParameterImpl <em>Declared Parameter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.icam.stateMachine.impl.DeclaredParameterImpl
+     * @see org.xtext.icam.stateMachine.impl.StateMachinePackageImpl#getDeclaredParameter()
+     * @generated
+     */
+    EClass DECLARED_PARAMETER = eINSTANCE.getDeclaredParameter();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DECLARED_PARAMETER__NAME = eINSTANCE.getDeclaredParameter_Name();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.icam.stateMachine.impl.VarNameImpl <em>Var Name</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.icam.stateMachine.impl.VarNameImpl
+     * @see org.xtext.icam.stateMachine.impl.StateMachinePackageImpl#getVarName()
+     * @generated
+     */
+    EClass VAR_NAME = eINSTANCE.getVarName();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VAR_NAME__VALUE = eINSTANCE.getVarName_Value();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.icam.stateMachine.impl.TypeImpl <em>Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.icam.stateMachine.impl.TypeImpl
+     * @see org.xtext.icam.stateMachine.impl.StateMachinePackageImpl#getType()
+     * @generated
+     */
+    EClass TYPE = eINSTANCE.getType();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE__TYPE = eINSTANCE.getType_Type();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.icam.stateMachine.impl.StringTypeImpl <em>String Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.icam.stateMachine.impl.StringTypeImpl
+     * @see org.xtext.icam.stateMachine.impl.StateMachinePackageImpl#getStringType()
+     * @generated
+     */
+    EClass STRING_TYPE = eINSTANCE.getStringType();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.icam.stateMachine.impl.FloatTypeImpl <em>Float Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.icam.stateMachine.impl.FloatTypeImpl
+     * @see org.xtext.icam.stateMachine.impl.StateMachinePackageImpl#getFloatType()
+     * @generated
+     */
+    EClass FLOAT_TYPE = eINSTANCE.getFloatType();
 
     /**
      * The meta object literal for the '{@link org.xtext.icam.stateMachine.Visibility <em>Visibility</em>}' enum.

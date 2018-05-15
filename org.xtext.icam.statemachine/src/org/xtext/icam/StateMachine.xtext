@@ -19,12 +19,17 @@ StateMachine:
 ;
 
 Event:
-	'event' name=ID
+	 returnType=Type name=ID ('(' tests+=Test (',' tests+=Test)* ')')? ';'
 ;
-	
+
+Test:
+	types+=Type args+=DeclaredParameter
+;
+
 Command:
 	'command' name=ID
 ;
+
 
 Modifier:
 	visibility+=Visibility
@@ -35,7 +40,6 @@ enum Visibility:
 ;
 
 State:
-	modifier+=Modifier?
 	'state' name=ID
 		('actions' '{' actions+=[Command]+ '}')?
 		transitions+=Transition*
@@ -43,7 +47,32 @@ State:
 ;
 
 Transition:
-	'on' event=[Event] 'then' state=[State] 'if' '(' ')'
+	'on' event=[Event] 'then' state=[State] 'if' condition =Condition?
 ;
+
+Condition:
+	name=ID
+;
+
+DeclaredParameter:
+	name=VarName (INT'.'INT)?
+;
+
+VarName:
+	{VarName} value=A_VARNAME
+;
+
+terminal A_VARNAME:
+	('a'..'z')('a'..'z')+;
+
+
+Type:
+	{StringType} type="String"|{FloatType} type="Float" 
+	
+;
+
+
+
+
 
 

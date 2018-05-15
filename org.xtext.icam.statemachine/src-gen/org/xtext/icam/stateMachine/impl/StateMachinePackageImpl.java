@@ -12,13 +12,20 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.xtext.icam.stateMachine.Command;
+import org.xtext.icam.stateMachine.Condition;
+import org.xtext.icam.stateMachine.DeclaredParameter;
 import org.xtext.icam.stateMachine.Event;
+import org.xtext.icam.stateMachine.FloatType;
 import org.xtext.icam.stateMachine.Modifier;
 import org.xtext.icam.stateMachine.State;
 import org.xtext.icam.stateMachine.StateMachine;
 import org.xtext.icam.stateMachine.StateMachineFactory;
 import org.xtext.icam.stateMachine.StateMachinePackage;
+import org.xtext.icam.stateMachine.StringType;
+import org.xtext.icam.stateMachine.Test;
 import org.xtext.icam.stateMachine.Transition;
+import org.xtext.icam.stateMachine.Type;
+import org.xtext.icam.stateMachine.VarName;
 import org.xtext.icam.stateMachine.Visibility;
 import org.xtext.icam.stateMachine.model;
 
@@ -56,6 +63,13 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass testEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass commandEClass = null;
 
   /**
@@ -78,6 +92,48 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
    * @generated
    */
   private EClass transitionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass conditionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass declaredParameterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass varNameEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass typeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass stringTypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass floatTypeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -254,9 +310,59 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getEvent_ReturnType()
+  {
+    return (EReference)eventEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getEvent_Name()
   {
-    return (EAttribute)eventEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)eventEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getEvent_Tests()
+  {
+    return (EReference)eventEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTest()
+  {
+    return testEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTest_Types()
+  {
+    return (EReference)testEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTest_Args()
+  {
+    return (EReference)testEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -314,19 +420,9 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getState_Modifier()
-  {
-    return (EReference)stateEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getState_Name()
   {
-    return (EAttribute)stateEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)stateEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -336,7 +432,7 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
    */
   public EReference getState_Actions()
   {
-    return (EReference)stateEClass.getEStructuralFeatures().get(2);
+    return (EReference)stateEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -346,7 +442,7 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
    */
   public EReference getState_Transitions()
   {
-    return (EReference)stateEClass.getEStructuralFeatures().get(3);
+    return (EReference)stateEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -377,6 +473,116 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
   public EReference getTransition_State()
   {
     return (EReference)transitionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTransition_Condition()
+  {
+    return (EReference)transitionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCondition()
+  {
+    return conditionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCondition_Name()
+  {
+    return (EAttribute)conditionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDeclaredParameter()
+  {
+    return declaredParameterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDeclaredParameter_Name()
+  {
+    return (EReference)declaredParameterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getVarName()
+  {
+    return varNameEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getVarName_Value()
+  {
+    return (EAttribute)varNameEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getType()
+  {
+    return typeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getType_Type()
+  {
+    return (EAttribute)typeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getStringType()
+  {
+    return stringTypeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getFloatType()
+  {
+    return floatTypeEClass;
   }
 
   /**
@@ -431,7 +637,13 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
     createEReference(stateMachineEClass, STATE_MACHINE__FINALSTATES);
 
     eventEClass = createEClass(EVENT);
+    createEReference(eventEClass, EVENT__RETURN_TYPE);
     createEAttribute(eventEClass, EVENT__NAME);
+    createEReference(eventEClass, EVENT__TESTS);
+
+    testEClass = createEClass(TEST);
+    createEReference(testEClass, TEST__TYPES);
+    createEReference(testEClass, TEST__ARGS);
 
     commandEClass = createEClass(COMMAND);
     createEAttribute(commandEClass, COMMAND__NAME);
@@ -440,7 +652,6 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
     createEAttribute(modifierEClass, MODIFIER__VISIBILITY);
 
     stateEClass = createEClass(STATE);
-    createEReference(stateEClass, STATE__MODIFIER);
     createEAttribute(stateEClass, STATE__NAME);
     createEReference(stateEClass, STATE__ACTIONS);
     createEReference(stateEClass, STATE__TRANSITIONS);
@@ -448,6 +659,23 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
     transitionEClass = createEClass(TRANSITION);
     createEReference(transitionEClass, TRANSITION__EVENT);
     createEReference(transitionEClass, TRANSITION__STATE);
+    createEReference(transitionEClass, TRANSITION__CONDITION);
+
+    conditionEClass = createEClass(CONDITION);
+    createEAttribute(conditionEClass, CONDITION__NAME);
+
+    declaredParameterEClass = createEClass(DECLARED_PARAMETER);
+    createEReference(declaredParameterEClass, DECLARED_PARAMETER__NAME);
+
+    varNameEClass = createEClass(VAR_NAME);
+    createEAttribute(varNameEClass, VAR_NAME__VALUE);
+
+    typeEClass = createEClass(TYPE);
+    createEAttribute(typeEClass, TYPE__TYPE);
+
+    stringTypeEClass = createEClass(STRING_TYPE);
+
+    floatTypeEClass = createEClass(FLOAT_TYPE);
 
     // Create enums
     visibilityEEnum = createEEnum(VISIBILITY);
@@ -482,6 +710,8 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    stringTypeEClass.getESuperTypes().add(this.getType());
+    floatTypeEClass.getESuperTypes().add(this.getType());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, model.class, "model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -496,7 +726,13 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
     initEReference(getStateMachine_Finalstates(), this.getState(), null, "finalstates", null, 0, 1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEvent_ReturnType(), this.getType(), null, "returnType", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEvent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEvent_Tests(), this.getTest(), null, "tests", null, 0, -1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(testEClass, Test.class, "Test", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTest_Types(), this.getType(), null, "types", null, 0, -1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTest_Args(), this.getDeclaredParameter(), null, "args", null, 0, -1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCommand_Name(), ecorePackage.getEString(), "name", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -505,7 +741,6 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
     initEAttribute(getModifier_Visibility(), this.getVisibility(), "visibility", null, 0, -1, Modifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getState_Modifier(), this.getModifier(), null, "modifier", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getState_Name(), ecorePackage.getEString(), "name", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getState_Actions(), this.getCommand(), null, "actions", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getState_Transitions(), this.getTransition(), null, "transitions", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -513,6 +748,23 @@ public class StateMachinePackageImpl extends EPackageImpl implements StateMachin
     initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTransition_Event(), this.getEvent(), null, "event", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTransition_State(), this.getState(), null, "state", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTransition_Condition(), this.getCondition(), null, "condition", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCondition_Name(), ecorePackage.getEString(), "name", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(declaredParameterEClass, DeclaredParameter.class, "DeclaredParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDeclaredParameter_Name(), this.getVarName(), null, "name", null, 0, 1, DeclaredParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(varNameEClass, VarName.class, "VarName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getVarName_Value(), ecorePackage.getEString(), "value", null, 0, 1, VarName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getType_Type(), ecorePackage.getEString(), "type", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(stringTypeEClass, StringType.class, "StringType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(floatTypeEClass, FloatType.class, "FloatType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Initialize enums and add enum literals
     initEEnum(visibilityEEnum, Visibility.class, "Visibility");

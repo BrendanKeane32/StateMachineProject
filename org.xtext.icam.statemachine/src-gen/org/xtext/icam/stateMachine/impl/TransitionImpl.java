@@ -4,6 +4,7 @@
 package org.xtext.icam.stateMachine.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -11,6 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.icam.stateMachine.Condition;
 import org.xtext.icam.stateMachine.Event;
 import org.xtext.icam.stateMachine.State;
 import org.xtext.icam.stateMachine.StateMachinePackage;
@@ -26,6 +28,7 @@ import org.xtext.icam.stateMachine.Transition;
  * <ul>
  *   <li>{@link org.xtext.icam.stateMachine.impl.TransitionImpl#getEvent <em>Event</em>}</li>
  *   <li>{@link org.xtext.icam.stateMachine.impl.TransitionImpl#getState <em>State</em>}</li>
+ *   <li>{@link org.xtext.icam.stateMachine.impl.TransitionImpl#getCondition <em>Condition</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,6 +54,16 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
    * @ordered
    */
   protected State state;
+
+  /**
+   * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCondition()
+   * @generated
+   * @ordered
+   */
+  protected Condition condition;
 
   /**
    * <!-- begin-user-doc -->
@@ -164,6 +177,70 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
    * <!-- end-user-doc -->
    * @generated
    */
+  public Condition getCondition()
+  {
+    return condition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetCondition(Condition newCondition, NotificationChain msgs)
+  {
+    Condition oldCondition = condition;
+    condition = newCondition;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StateMachinePackage.TRANSITION__CONDITION, oldCondition, newCondition);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCondition(Condition newCondition)
+  {
+    if (newCondition != condition)
+    {
+      NotificationChain msgs = null;
+      if (condition != null)
+        msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StateMachinePackage.TRANSITION__CONDITION, null, msgs);
+      if (newCondition != null)
+        msgs = ((InternalEObject)newCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StateMachinePackage.TRANSITION__CONDITION, null, msgs);
+      msgs = basicSetCondition(newCondition, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, StateMachinePackage.TRANSITION__CONDITION, newCondition, newCondition));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case StateMachinePackage.TRANSITION__CONDITION:
+        return basicSetCondition(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -175,6 +252,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
       case StateMachinePackage.TRANSITION__STATE:
         if (resolve) return getState();
         return basicGetState();
+      case StateMachinePackage.TRANSITION__CONDITION:
+        return getCondition();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -194,6 +273,9 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
         return;
       case StateMachinePackage.TRANSITION__STATE:
         setState((State)newValue);
+        return;
+      case StateMachinePackage.TRANSITION__CONDITION:
+        setCondition((Condition)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -215,6 +297,9 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
       case StateMachinePackage.TRANSITION__STATE:
         setState((State)null);
         return;
+      case StateMachinePackage.TRANSITION__CONDITION:
+        setCondition((Condition)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -233,6 +318,8 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
         return event != null;
       case StateMachinePackage.TRANSITION__STATE:
         return state != null;
+      case StateMachinePackage.TRANSITION__CONDITION:
+        return condition != null;
     }
     return super.eIsSet(featureID);
   }

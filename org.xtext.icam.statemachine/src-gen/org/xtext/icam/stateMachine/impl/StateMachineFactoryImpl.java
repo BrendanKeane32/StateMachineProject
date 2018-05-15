@@ -69,10 +69,17 @@ public class StateMachineFactoryImpl extends EFactoryImpl implements StateMachin
       case StateMachinePackage.MODEL: return createmodel();
       case StateMachinePackage.STATE_MACHINE: return createStateMachine();
       case StateMachinePackage.EVENT: return createEvent();
+      case StateMachinePackage.TEST: return createTest();
       case StateMachinePackage.COMMAND: return createCommand();
       case StateMachinePackage.MODIFIER: return createModifier();
       case StateMachinePackage.STATE: return createState();
       case StateMachinePackage.TRANSITION: return createTransition();
+      case StateMachinePackage.CONDITION: return createCondition();
+      case StateMachinePackage.DECLARED_PARAMETER: return createDeclaredParameter();
+      case StateMachinePackage.VAR_NAME: return createVarName();
+      case StateMachinePackage.TYPE: return createType();
+      case StateMachinePackage.STRING_TYPE: return createStringType();
+      case StateMachinePackage.FLOAT_TYPE: return createFloatType();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -150,6 +157,17 @@ public class StateMachineFactoryImpl extends EFactoryImpl implements StateMachin
    * <!-- end-user-doc -->
    * @generated
    */
+  public Test createTest()
+  {
+    TestImpl test = new TestImpl();
+    return test;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Command createCommand()
   {
     CommandImpl command = new CommandImpl();
@@ -187,6 +205,72 @@ public class StateMachineFactoryImpl extends EFactoryImpl implements StateMachin
   {
     TransitionImpl transition = new TransitionImpl();
     return transition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Condition createCondition()
+  {
+    ConditionImpl condition = new ConditionImpl();
+    return condition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DeclaredParameter createDeclaredParameter()
+  {
+    DeclaredParameterImpl declaredParameter = new DeclaredParameterImpl();
+    return declaredParameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public VarName createVarName()
+  {
+    VarNameImpl varName = new VarNameImpl();
+    return varName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Type createType()
+  {
+    TypeImpl type = new TypeImpl();
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StringType createStringType()
+  {
+    StringTypeImpl stringType = new StringTypeImpl();
+    return stringType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FloatType createFloatType()
+  {
+    FloatTypeImpl floatType = new FloatTypeImpl();
+    return floatType;
   }
 
   /**

@@ -3,6 +3,8 @@
  */
 package org.xtext.icam.stateMachine;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,7 +16,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.icam.stateMachine.Event#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link org.xtext.icam.stateMachine.Event#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.icam.stateMachine.Event#getTests <em>Tests</em>}</li>
  * </ul>
  *
  * @see org.xtext.icam.stateMachine.StateMachinePackage#getEvent()
@@ -23,6 +27,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Event extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Return Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Return Type</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Return Type</em>' containment reference.
+   * @see #setReturnType(Type)
+   * @see org.xtext.icam.stateMachine.StateMachinePackage#getEvent_ReturnType()
+   * @model containment="true"
+   * @generated
+   */
+  Type getReturnType();
+
+  /**
+   * Sets the value of the '{@link org.xtext.icam.stateMachine.Event#getReturnType <em>Return Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Return Type</em>' containment reference.
+   * @see #getReturnType()
+   * @generated
+   */
+  void setReturnType(Type value);
+
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -48,5 +78,21 @@ public interface Event extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Tests</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.icam.stateMachine.Test}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Tests</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Tests</em>' containment reference list.
+   * @see org.xtext.icam.stateMachine.StateMachinePackage#getEvent_Tests()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Test> getTests();
 
 } // Event

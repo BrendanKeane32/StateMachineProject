@@ -6,6 +6,7 @@ package org.xtext.icam.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
+import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.CrossReference;
@@ -138,25 +139,96 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 	public class EventElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.icam.StateMachine.Event");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cEventKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cReturnTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cReturnTypeTypeParserRuleCall_0_0 = (RuleCall)cReturnTypeAssignment_0.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cLeftParenthesisKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cTestsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cTestsTestParserRuleCall_2_1_0 = (RuleCall)cTestsAssignment_2_1.eContents().get(0);
+		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
+		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
+		private final Assignment cTestsAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final RuleCall cTestsTestParserRuleCall_2_2_1_0 = (RuleCall)cTestsAssignment_2_2_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Event:
-		//	'event' name=ID;
+		//	returnType=Type name=ID ('(' tests+=Test (',' tests+=Test)* ')')? ';';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'event' name=ID
+		//returnType=Type name=ID ('(' tests+=Test (',' tests+=Test)* ')')? ';'
 		public Group getGroup() { return cGroup; }
 		
-		//'event'
-		public Keyword getEventKeyword_0() { return cEventKeyword_0; }
+		//returnType=Type
+		public Assignment getReturnTypeAssignment_0() { return cReturnTypeAssignment_0; }
+		
+		//Type
+		public RuleCall getReturnTypeTypeParserRuleCall_0_0() { return cReturnTypeTypeParserRuleCall_0_0; }
 		
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//('(' tests+=Test (',' tests+=Test)* ')')?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_2_0() { return cLeftParenthesisKeyword_2_0; }
+		
+		//tests+=Test
+		public Assignment getTestsAssignment_2_1() { return cTestsAssignment_2_1; }
+		
+		//Test
+		public RuleCall getTestsTestParserRuleCall_2_1_0() { return cTestsTestParserRuleCall_2_1_0; }
+		
+		//(',' tests+=Test)*
+		public Group getGroup_2_2() { return cGroup_2_2; }
+		
+		//','
+		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
+		
+		//tests+=Test
+		public Assignment getTestsAssignment_2_2_1() { return cTestsAssignment_2_2_1; }
+		
+		//Test
+		public RuleCall getTestsTestParserRuleCall_2_2_1_0() { return cTestsTestParserRuleCall_2_2_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_2_3() { return cRightParenthesisKeyword_2_3; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+	}
+	public class TestElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.icam.StateMachine.Test");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cTypesAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cTypesTypeParserRuleCall_0_0 = (RuleCall)cTypesAssignment_0.eContents().get(0);
+		private final Assignment cArgsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cArgsDeclaredParameterParserRuleCall_1_0 = (RuleCall)cArgsAssignment_1.eContents().get(0);
+		
+		//Test:
+		//	types+=Type args+=DeclaredParameter;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//types+=Type args+=DeclaredParameter
+		public Group getGroup() { return cGroup; }
+		
+		//types+=Type
+		public Assignment getTypesAssignment_0() { return cTypesAssignment_0; }
+		
+		//Type
+		public RuleCall getTypesTypeParserRuleCall_0_0() { return cTypesTypeParserRuleCall_0_0; }
+		
+		//args+=DeclaredParameter
+		public Assignment getArgsAssignment_1() { return cArgsAssignment_1; }
+		
+		//DeclaredParameter
+		public RuleCall getArgsDeclaredParameterParserRuleCall_1_0() { return cArgsDeclaredParameterParserRuleCall_1_0; }
 	}
 	public class CommandElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.icam.StateMachine.Command");
@@ -199,76 +271,67 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 	public class StateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.icam.StateMachine.State");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cModifierAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cModifierModifierParserRuleCall_0_0 = (RuleCall)cModifierAssignment_0.eContents().get(0);
-		private final Keyword cStateKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cActionsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Assignment cActionsAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
-		private final CrossReference cActionsCommandCrossReference_3_2_0 = (CrossReference)cActionsAssignment_3_2.eContents().get(0);
-		private final RuleCall cActionsCommandIDTerminalRuleCall_3_2_0_1 = (RuleCall)cActionsCommandCrossReference_3_2_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
-		private final Assignment cTransitionsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cTransitionsTransitionParserRuleCall_4_0 = (RuleCall)cTransitionsAssignment_4.eContents().get(0);
-		private final Keyword cEndKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cStateKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cActionsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Assignment cActionsAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final CrossReference cActionsCommandCrossReference_2_2_0 = (CrossReference)cActionsAssignment_2_2.eContents().get(0);
+		private final RuleCall cActionsCommandIDTerminalRuleCall_2_2_0_1 = (RuleCall)cActionsCommandCrossReference_2_2_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
+		private final Assignment cTransitionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTransitionsTransitionParserRuleCall_3_0 = (RuleCall)cTransitionsAssignment_3.eContents().get(0);
+		private final Keyword cEndKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//State:
-		//	modifier+=Modifier?
 		//	'state' name=ID ('actions' '{' actions+=[Command]+ '}')?
 		//	transitions+=Transition*
 		//	'end';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//modifier+=Modifier? 'state' name=ID ('actions' '{' actions+=[Command]+ '}')? transitions+=Transition* 'end'
+		//'state' name=ID ('actions' '{' actions+=[Command]+ '}')? transitions+=Transition* 'end'
 		public Group getGroup() { return cGroup; }
 		
-		//modifier+=Modifier?
-		public Assignment getModifierAssignment_0() { return cModifierAssignment_0; }
-		
-		//Modifier
-		public RuleCall getModifierModifierParserRuleCall_0_0() { return cModifierModifierParserRuleCall_0_0; }
-		
 		//'state'
-		public Keyword getStateKeyword_1() { return cStateKeyword_1; }
+		public Keyword getStateKeyword_0() { return cStateKeyword_0; }
 		
 		//name=ID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
 		//('actions' '{' actions+=[Command]+ '}')?
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//'actions'
-		public Keyword getActionsKeyword_3_0() { return cActionsKeyword_3_0; }
+		public Keyword getActionsKeyword_2_0() { return cActionsKeyword_2_0; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_3_1() { return cLeftCurlyBracketKeyword_3_1; }
+		public Keyword getLeftCurlyBracketKeyword_2_1() { return cLeftCurlyBracketKeyword_2_1; }
 		
 		//actions+=[Command]+
-		public Assignment getActionsAssignment_3_2() { return cActionsAssignment_3_2; }
+		public Assignment getActionsAssignment_2_2() { return cActionsAssignment_2_2; }
 		
 		//[Command]
-		public CrossReference getActionsCommandCrossReference_3_2_0() { return cActionsCommandCrossReference_3_2_0; }
+		public CrossReference getActionsCommandCrossReference_2_2_0() { return cActionsCommandCrossReference_2_2_0; }
 		
 		//ID
-		public RuleCall getActionsCommandIDTerminalRuleCall_3_2_0_1() { return cActionsCommandIDTerminalRuleCall_3_2_0_1; }
+		public RuleCall getActionsCommandIDTerminalRuleCall_2_2_0_1() { return cActionsCommandIDTerminalRuleCall_2_2_0_1; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_3_3() { return cRightCurlyBracketKeyword_3_3; }
+		public Keyword getRightCurlyBracketKeyword_2_3() { return cRightCurlyBracketKeyword_2_3; }
 		
 		//transitions+=Transition*
-		public Assignment getTransitionsAssignment_4() { return cTransitionsAssignment_4; }
+		public Assignment getTransitionsAssignment_3() { return cTransitionsAssignment_3; }
 		
 		//Transition
-		public RuleCall getTransitionsTransitionParserRuleCall_4_0() { return cTransitionsTransitionParserRuleCall_4_0; }
+		public RuleCall getTransitionsTransitionParserRuleCall_3_0() { return cTransitionsTransitionParserRuleCall_3_0; }
 		
 		//'end'
-		public Keyword getEndKeyword_5() { return cEndKeyword_5; }
+		public Keyword getEndKeyword_4() { return cEndKeyword_4; }
 	}
 	public class TransitionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.icam.StateMachine.Transition");
@@ -282,14 +345,14 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cStateStateCrossReference_3_0 = (CrossReference)cStateAssignment_3.eContents().get(0);
 		private final RuleCall cStateStateIDTerminalRuleCall_3_0_1 = (RuleCall)cStateStateCrossReference_3_0.eContents().get(1);
 		private final Keyword cIfKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cLeftParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cConditionAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cConditionConditionParserRuleCall_5_0 = (RuleCall)cConditionAssignment_5.eContents().get(0);
 		
 		//Transition:
-		//	'on' event=[Event] 'then' state=[State] 'if' '(' ')';
+		//	'on' event=[Event] 'then' state=[State] 'if' condition=Condition?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'on' event=[Event] 'then' state=[State] 'if' '(' ')'
+		//'on' event=[Event] 'then' state=[State] 'if' condition=Condition?
 		public Group getGroup() { return cGroup; }
 		
 		//'on'
@@ -319,11 +382,127 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 		//'if'
 		public Keyword getIfKeyword_4() { return cIfKeyword_4; }
 		
-		//'('
-		public Keyword getLeftParenthesisKeyword_5() { return cLeftParenthesisKeyword_5; }
+		//condition=Condition?
+		public Assignment getConditionAssignment_5() { return cConditionAssignment_5; }
 		
-		//')'
-		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
+		//Condition
+		public RuleCall getConditionConditionParserRuleCall_5_0() { return cConditionConditionParserRuleCall_5_0; }
+	}
+	public class ConditionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.icam.StateMachine.Condition");
+		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		
+		//Condition:
+		//	name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=ID
+		public Assignment getNameAssignment() { return cNameAssignment; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
+	}
+	public class DeclaredParameterElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.icam.StateMachine.DeclaredParameter");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameVarNameParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final RuleCall cINTTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Keyword cFullStopKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final RuleCall cINTTerminalRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
+		
+		//DeclaredParameter:
+		//	name=VarName (INT '.' INT)?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=VarName (INT '.' INT)?
+		public Group getGroup() { return cGroup; }
+		
+		//name=VarName
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//VarName
+		public RuleCall getNameVarNameParserRuleCall_0_0() { return cNameVarNameParserRuleCall_0_0; }
+		
+		//(INT '.' INT)?
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//INT
+		public RuleCall getINTTerminalRuleCall_1_0() { return cINTTerminalRuleCall_1_0; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_1_1() { return cFullStopKeyword_1_1; }
+		
+		//INT
+		public RuleCall getINTTerminalRuleCall_1_2() { return cINTTerminalRuleCall_1_2; }
+	}
+	public class VarNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.icam.StateMachine.VarName");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cVarNameAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueA_VARNAMETerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		
+		//VarName:
+		//	{VarName} value=A_VARNAME;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{VarName} value=A_VARNAME
+		public Group getGroup() { return cGroup; }
+		
+		//{VarName}
+		public Action getVarNameAction_0() { return cVarNameAction_0; }
+		
+		//value=A_VARNAME
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+		
+		//A_VARNAME
+		public RuleCall getValueA_VARNAMETerminalRuleCall_1_0() { return cValueA_VARNAMETerminalRuleCall_1_0; }
+	}
+	public class TypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.icam.StateMachine.Type");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cStringTypeAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Assignment cTypeAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final Keyword cTypeStringKeyword_0_1_0 = (Keyword)cTypeAssignment_0_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Action cFloatTypeAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Assignment cTypeAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final Keyword cTypeFloatKeyword_1_1_0 = (Keyword)cTypeAssignment_1_1.eContents().get(0);
+		
+		//Type:
+		//	{StringType} type="String" | {FloatType} type="Float";
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{StringType} type="String" | {FloatType} type="Float"
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//{StringType} type="String"
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//{StringType}
+		public Action getStringTypeAction_0_0() { return cStringTypeAction_0_0; }
+		
+		//type="String"
+		public Assignment getTypeAssignment_0_1() { return cTypeAssignment_0_1; }
+		
+		//"String"
+		public Keyword getTypeStringKeyword_0_1_0() { return cTypeStringKeyword_0_1_0; }
+		
+		//{FloatType} type="Float"
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//{FloatType}
+		public Action getFloatTypeAction_1_0() { return cFloatTypeAction_1_0; }
+		
+		//type="Float"
+		public Assignment getTypeAssignment_1_1() { return cTypeAssignment_1_1; }
+		
+		//"Float"
+		public Keyword getTypeFloatKeyword_1_1_0() { return cTypeFloatKeyword_1_1_0; }
 	}
 	
 	public class VisibilityElements extends AbstractEnumRuleElementFinder {
@@ -357,11 +536,17 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 	private final ModelElements pModel;
 	private final StateMachineElements pStateMachine;
 	private final EventElements pEvent;
+	private final TestElements pTest;
 	private final CommandElements pCommand;
 	private final ModifierElements pModifier;
 	private final VisibilityElements eVisibility;
 	private final StateElements pState;
 	private final TransitionElements pTransition;
+	private final ConditionElements pCondition;
+	private final DeclaredParameterElements pDeclaredParameter;
+	private final VarNameElements pVarName;
+	private final TerminalRule tA_VARNAME;
+	private final TypeElements pType;
 	
 	private final Grammar grammar;
 	
@@ -375,11 +560,17 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 		this.pModel = new ModelElements();
 		this.pStateMachine = new StateMachineElements();
 		this.pEvent = new EventElements();
+		this.pTest = new TestElements();
 		this.pCommand = new CommandElements();
 		this.pModifier = new ModifierElements();
 		this.eVisibility = new VisibilityElements();
 		this.pState = new StateElements();
 		this.pTransition = new TransitionElements();
+		this.pCondition = new ConditionElements();
+		this.pDeclaredParameter = new DeclaredParameterElements();
+		this.pVarName = new VarNameElements();
+		this.tA_VARNAME = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.icam.StateMachine.A_VARNAME");
+		this.pType = new TypeElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -436,13 +627,23 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Event:
-	//	'event' name=ID;
+	//	returnType=Type name=ID ('(' tests+=Test (',' tests+=Test)* ')')? ';';
 	public EventElements getEventAccess() {
 		return pEvent;
 	}
 	
 	public ParserRule getEventRule() {
 		return getEventAccess().getRule();
+	}
+	
+	//Test:
+	//	types+=Type args+=DeclaredParameter;
+	public TestElements getTestAccess() {
+		return pTest;
+	}
+	
+	public ParserRule getTestRule() {
+		return getTestAccess().getRule();
 	}
 	
 	//Command:
@@ -476,7 +677,6 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//State:
-	//	modifier+=Modifier?
 	//	'state' name=ID ('actions' '{' actions+=[Command]+ '}')?
 	//	transitions+=Transition*
 	//	'end';
@@ -489,13 +689,59 @@ public class StateMachineGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Transition:
-	//	'on' event=[Event] 'then' state=[State] 'if' '(' ')';
+	//	'on' event=[Event] 'then' state=[State] 'if' condition=Condition?;
 	public TransitionElements getTransitionAccess() {
 		return pTransition;
 	}
 	
 	public ParserRule getTransitionRule() {
 		return getTransitionAccess().getRule();
+	}
+	
+	//Condition:
+	//	name=ID;
+	public ConditionElements getConditionAccess() {
+		return pCondition;
+	}
+	
+	public ParserRule getConditionRule() {
+		return getConditionAccess().getRule();
+	}
+	
+	//DeclaredParameter:
+	//	name=VarName (INT '.' INT)?;
+	public DeclaredParameterElements getDeclaredParameterAccess() {
+		return pDeclaredParameter;
+	}
+	
+	public ParserRule getDeclaredParameterRule() {
+		return getDeclaredParameterAccess().getRule();
+	}
+	
+	//VarName:
+	//	{VarName} value=A_VARNAME;
+	public VarNameElements getVarNameAccess() {
+		return pVarName;
+	}
+	
+	public ParserRule getVarNameRule() {
+		return getVarNameAccess().getRule();
+	}
+	
+	//terminal A_VARNAME:
+	//	'a'..'z' 'a'..'z'+;
+	public TerminalRule getA_VARNAMERule() {
+		return tA_VARNAME;
+	}
+	
+	//Type:
+	//	{StringType} type="String" | {FloatType} type="Float";
+	public TypeElements getTypeAccess() {
+		return pType;
+	}
+	
+	public ParserRule getTypeRule() {
+		return getTypeAccess().getRule();
 	}
 	
 	//terminal ID:

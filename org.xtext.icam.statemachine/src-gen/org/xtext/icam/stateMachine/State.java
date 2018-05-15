@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.icam.stateMachine.State#getModifier <em>Modifier</em>}</li>
  *   <li>{@link org.xtext.icam.stateMachine.State#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.icam.stateMachine.State#getActions <em>Actions</em>}</li>
  *   <li>{@link org.xtext.icam.stateMachine.State#getTransitions <em>Transitions</em>}</li>
@@ -28,22 +27,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface State extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Modifier</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.icam.stateMachine.Modifier}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Modifier</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Modifier</em>' containment reference list.
-   * @see org.xtext.icam.stateMachine.StateMachinePackage#getState_Modifier()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Modifier> getModifier();
-
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
